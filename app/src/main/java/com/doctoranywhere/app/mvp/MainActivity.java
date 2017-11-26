@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void setAdapter(ArrayList<UserResult> list) {
-        mAdapter = new UserAdapter(MainActivity.this, mUserList);
+        mAdapter = new UserAdapter(MainActivity.this, list);
         mRecyclerView.setAdapter(mAdapter);
     }
 
