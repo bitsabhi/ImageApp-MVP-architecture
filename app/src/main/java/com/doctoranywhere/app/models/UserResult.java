@@ -1,12 +1,18 @@
 package com.doctoranywhere.app.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class UserResult implements Serializable{
-
+    @SerializedName("name")
     private String user;
+
+    @SerializedName("image")
     private String imageUrl;
+
+    @SerializedName("items")
     private ArrayList<String> itemUrlList;
 
     public UserResult(String user, String imageUrl, ArrayList<String> itemUrlList) {
