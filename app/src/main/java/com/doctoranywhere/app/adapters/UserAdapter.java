@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.doctoranywhere.app.R;
 import com.doctoranywhere.app.models.UserResult;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -54,7 +54,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                           int viewType) {
+                                         int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.main_item, parent, false);
         final ViewHolder vh = new ViewHolder(v);
@@ -68,61 +68,61 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mTextView.setText(mDataset.get(position).getUser());
-        Picasso.with(mContext).load(mDataset.get(position).getImageUrl()).resize(100, 100).into(holder.mUserImage);
+        Glide.with(mContext).load(mDataset.get(position).getImageUrl()).override(100, 100).into(holder.mUserImage);
         itemImageList.clear();
         itemImageList.addAll(mDataset.get(position).getItemUrlList());
-       switch (itemImageList.size()){
-           case 1:
-               holder.mImage1.setVisibility(View.VISIBLE);
-               Picasso.with(mContext).load(itemImageList.get(0)).resize(500, 500).into(holder.mImage1);
-               holder.mImage2.setVisibility(View.GONE);
-               holder.mImage3.setVisibility(View.GONE);
-               holder.mImage4.setVisibility(View.GONE);
-               holder.mImage5.setVisibility(View.GONE);
+        switch (itemImageList.size()) {
+            case 1:
+                holder.mImage1.setVisibility(View.VISIBLE);
+                Glide.with(mContext).load(itemImageList.get(0)).override(500, 500).into(holder.mImage1);
+                holder.mImage2.setVisibility(View.GONE);
+                holder.mImage3.setVisibility(View.GONE);
+                holder.mImage4.setVisibility(View.GONE);
+                holder.mImage5.setVisibility(View.GONE);
 
-               break;
-           case 2:
-               holder.mImage1.setVisibility(View.GONE);
-               holder.mImage2.setVisibility(View.VISIBLE);
-               holder.mImage3.setVisibility(View.VISIBLE);
-               holder.mImage4.setVisibility(View.GONE);
-               holder.mImage5.setVisibility(View.GONE);
-               Picasso.with(mContext).load(itemImageList.get(0)).resize(500, 500).into(holder.mImage2);
-               Picasso.with(mContext).load(itemImageList.get(1)).resize(500, 500).into(holder.mImage3);
-               break;
-           case 3:
-               holder.mImage1.setVisibility(View.VISIBLE);
-               holder.mImage2.setVisibility(View.VISIBLE);
-               holder.mImage3.setVisibility(View.VISIBLE);
-               holder.mImage4.setVisibility(View.GONE);
-               holder.mImage5.setVisibility(View.GONE);
-               Picasso.with(mContext).load(itemImageList.get(0)).resize(500, 500).into(holder.mImage1);
-               Picasso.with(mContext).load(itemImageList.get(1)).resize(500, 500).into(holder.mImage2);
-               Picasso.with(mContext).load(itemImageList.get(2)).resize(500, 500).into(holder.mImage3);
-               break;
-           case 4:
-               holder.mImage1.setVisibility(View.GONE);
-               holder.mImage2.setVisibility(View.VISIBLE);
-               holder.mImage3.setVisibility(View.VISIBLE);
-               holder.mImage4.setVisibility(View.VISIBLE);
-               holder.mImage5.setVisibility(View.VISIBLE);
-               Picasso.with(mContext).load(itemImageList.get(0)).resize(500, 500).into(holder.mImage2);
-               Picasso.with(mContext).load(itemImageList.get(1)).resize(500, 500).into(holder.mImage3);
-               Picasso.with(mContext).load(itemImageList.get(2)).resize(500, 500).into(holder.mImage4);
-               Picasso.with(mContext).load(itemImageList.get(3)).resize(500, 500).into(holder.mImage5);
-               break;
-           case 5:
-               holder.mImage1.setVisibility(View.VISIBLE);
-               holder.mImage2.setVisibility(View.VISIBLE);
-               holder.mImage3.setVisibility(View.VISIBLE);
-               holder.mImage4.setVisibility(View.VISIBLE);
-               holder.mImage5.setVisibility(View.VISIBLE);
-               Picasso.with(mContext).load(itemImageList.get(0)).resize(500, 500).into(holder.mImage1);
-               Picasso.with(mContext).load(itemImageList.get(1)).resize(500, 500).into(holder.mImage2);
-               Picasso.with(mContext).load(itemImageList.get(2)).resize(500, 500).into(holder.mImage3);
-               Picasso.with(mContext).load(itemImageList.get(3)).resize(500, 500).into(holder.mImage4);
-               Picasso.with(mContext).load(itemImageList.get(4)).resize(500, 500).into(holder.mImage5);
-               break;
+                break;
+            case 2:
+                holder.mImage1.setVisibility(View.GONE);
+                holder.mImage2.setVisibility(View.VISIBLE);
+                holder.mImage3.setVisibility(View.VISIBLE);
+                holder.mImage4.setVisibility(View.GONE);
+                holder.mImage5.setVisibility(View.GONE);
+                Glide.with(mContext).load(itemImageList.get(0)).override(500, 500).into(holder.mImage2);
+                Glide.with(mContext).load(itemImageList.get(1)).override(500, 500).into(holder.mImage3);
+                break;
+            case 3:
+                holder.mImage1.setVisibility(View.VISIBLE);
+                holder.mImage2.setVisibility(View.VISIBLE);
+                holder.mImage3.setVisibility(View.VISIBLE);
+                holder.mImage4.setVisibility(View.GONE);
+                holder.mImage5.setVisibility(View.GONE);
+                Glide.with(mContext).load(itemImageList.get(0)).override(500, 500).into(holder.mImage1);
+                Glide.with(mContext).load(itemImageList.get(1)).override(500, 500).into(holder.mImage2);
+                Glide.with(mContext).load(itemImageList.get(2)).override(500, 500).into(holder.mImage3);
+                break;
+            case 4:
+                holder.mImage1.setVisibility(View.GONE);
+                holder.mImage2.setVisibility(View.VISIBLE);
+                holder.mImage3.setVisibility(View.VISIBLE);
+                holder.mImage4.setVisibility(View.VISIBLE);
+                holder.mImage5.setVisibility(View.VISIBLE);
+                Glide.with(mContext).load(itemImageList.get(0)).override(500, 500).into(holder.mImage2);
+                Glide.with(mContext).load(itemImageList.get(1)).override(500, 500).into(holder.mImage3);
+                Glide.with(mContext).load(itemImageList.get(2)).override(500, 500).into(holder.mImage4);
+                Glide.with(mContext).load(itemImageList.get(3)).override(500, 500).into(holder.mImage5);
+                break;
+            case 5:
+                holder.mImage1.setVisibility(View.VISIBLE);
+                holder.mImage2.setVisibility(View.VISIBLE);
+                holder.mImage3.setVisibility(View.VISIBLE);
+                holder.mImage4.setVisibility(View.VISIBLE);
+                holder.mImage5.setVisibility(View.VISIBLE);
+                Glide.with(mContext).load(itemImageList.get(0)).override(500, 500).into(holder.mImage1);
+                Glide.with(mContext).load(itemImageList.get(1)).override(500, 500).into(holder.mImage2);
+                Glide.with(mContext).load(itemImageList.get(2)).override(500, 500).into(holder.mImage3);
+                Glide.with(mContext).load(itemImageList.get(3)).override(500, 500).into(holder.mImage4);
+                Glide.with(mContext).load(itemImageList.get(4)).override(500, 500).into(holder.mImage5);
+                break;
         }
     }
 
